@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "## This is a R file with 2 functions- makeCacheMatrix() and cacheSolve()\n\n\n## makeCacheMatrix can creat a list wit get, set,setmatrix,getmatrix 4 functions.\n##set is used for set a matrix to the function\n##get is used for get the matrix wich makeCacheMatrix stored\n## setmatrix stored the inversed matrix.\n## getmatrix get the stored inversed matrix.\n\nmakeCacheMatrix <- function(x = matrix()) {\n        m<-NULL\n        set<-function(y){\n                m<<-NULL\n                x<<-y\n                \n        }\n        get<-function() x\n        setmatrix<-function(solve) m<<- solve\n        getmatrix<-function() m\n        list(set=set, get=get,\n             setmatrix=setmatrix,\n             getmatrix=getmatrix)\n}\n\n## calculated the inverse of matrix. the x is a matrix.\n##if there is not a inverse stored in x,calculated the result. print the result and save it to x cache.\n##if there is a stored result, print the result.\n\ncacheSolve <- function(x, ...) {\n        \n        m<-x$getmatrix()\n        \n        if(!is.null(m)){\n                message(\"getting cached data:)\")\n                return(m)\n        }\n        matrix<-x$get()\n        m<-solve(matrix, ...)\n        x$setmatrix(m)\n        m\n        \n}",
+    "created" : 1484559005803.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2035312459",
+    "id" : "E7240DC8",
+    "lastKnownWriteTime" : 1484559040,
+    "last_content_update" : 1484559040735,
+    "path" : "~/work documents/DataScienceC/2.RPrograming/ProgrammingAssignment2/cachematrix.R",
+    "project_path" : "cachematrix.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
